@@ -50,6 +50,7 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
+    <instance objName="obj_boulderGenerator" x="39" y="-61" name="inst_0ECB9CED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rock" x="96" y="704" name="inst_5829DE7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_mouseController" x="0" y="0" name="inst_DA8F0D78" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_globalSetter" x="0" y="0" name="inst_E90FAB3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

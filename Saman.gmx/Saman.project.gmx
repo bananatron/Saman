@@ -35,6 +35,14 @@
     </sprites>
     <sprite>sprites\spr_gemLoading</sprite>
     <sprite>sprites\spr_rockLayer</sprite>
+    <sprites name="Boulders">
+      <sprite>sprites\spr_boulder1</sprite>
+      <sprite>sprites\spr_boulder2</sprite>
+      <sprite>sprites\spr_boulder3</sprite>
+      <sprite>sprites\spr_boulder4</sprite>
+      <sprite>sprites\spr_brownBreak</sprite>
+      <sprite>sprites\spr_rockBreak</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
@@ -46,8 +54,8 @@
   </scripts>
   <objects name="objects">
     <objects name="Controllers/Setters">
+      <object>objects\obj_boulderGenerator</object>
       <object>objects\obj_globalSetter</object>
-      <object>objects\obj_mouseController</object>
     </objects>
     <objects name="Unit Objects">
       <object>objects\obj_rock</object>
@@ -64,6 +72,8 @@
     </objects>
     <objects name="Enemy Objects">
       <object>objects\obj_bat</object>
+      <object>objects\obj_boulder</object>
+      <object>objects\obj_boulderBreak</object>
     </objects>
   </objects>
   <rooms name="rooms">
