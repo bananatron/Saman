@@ -3,7 +3,7 @@
   <spriteName>spr_rook1idle</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -198,6 +198,50 @@
           <argument>
             <kind>0</kind>
             <string>"right"</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Breaking / end game</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>state = "broken"
+// Whatever ends the game here
+</string>
           </argument>
         </arguments>
       </action>
@@ -424,7 +468,20 @@ switch (state){
     sprite_index = spr_rookBurrow_u;
   break;
   
+  case "breaking":
+    image_speed = 0.8;
+    sprite_index = spr_rookBreaking;
+  break;
+  
+  case "broken":
+    image_speed = 0;
+    sprite_index = spr_rookBreaking;
+    image_index = 13;
+  break;
+  
 }
+
+
    
 </string>
           </argument>
@@ -573,16 +630,19 @@ with obj_rockGem {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if state == "burrowed" {
-  state = "unburrowing"
-  image_index = 1;
-  alarm[5] = 8;
-}
-else {
-  state = "burrowing"
-  image_index = 1;
-  can_move = false;
-  alarm[5] = 8;
+            <string>if state != "broken" &amp;&amp; state != "breaking" {
+    
+    if state == "burrowed" {
+      state = "unburrowing"
+      image_index = 1;
+      alarm[5] = 8;
+    }
+    else {
+      state = "burrowing"
+      image_index = 1;
+      can_move = false;
+      alarm[5] = 8;
+    }
 }
 </string>
           </argument>
@@ -617,6 +677,22 @@ else {
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="96">
+      <action>
+        <libid>1</libid>
+        <id>331</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_restart_game</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="10" enumb="39">

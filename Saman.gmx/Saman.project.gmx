@@ -18,6 +18,7 @@
       <sprite>sprites\spr_rook1digging</sprite>
       <sprite>sprites\spr_rookBurrow_d</sprite>
       <sprite>sprites\spr_rookBurrow_u</sprite>
+      <sprite>sprites\spr_rookBreaking</sprite>
     </sprites>
     <sprites name="BM">
       <sprite>sprites\spr_blueman_n_r</sprite>
@@ -43,11 +44,20 @@
       <sprite>sprites\spr_brownBreak</sprite>
       <sprite>sprites\spr_rockBreak</sprite>
     </sprites>
+    <sprites name="Lizard">
+      <sprite>sprites\spr_lizFlying</sprite>
+      <sprite>sprites\spr_lizDiving</sprite>
+      <sprite>sprites\spr_lizDiveReverse</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\pt_lizPath</path>
+    <path>paths\pt_lizDive</path>
+    <path>paths\pt_lizRecover</path>
+  </paths>
   <scripts name="scripts">
     <script>scripts\scr_destroyGem.gml</script>
     <script>scripts\scr_grassGem.gml</script>
@@ -74,6 +84,7 @@
       <object>objects\obj_bat</object>
       <object>objects\obj_boulder</object>
       <object>objects\obj_boulderBreak</object>
+      <object>objects\obj_liz</object>
     </objects>
   </objects>
   <rooms name="rooms">
