@@ -9,16 +9,19 @@
     <sprite>sprites\spr_blarmoff1</sprite>
     <sprite>sprites\spr_floor</sprite>
     <sprite>sprites\spr_rook1</sprite>
+    <sprite>sprites\spr_gem</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\obj_rook</object>
-    <object>objects\obj_blarmoff</object>
-    <object>objects\obj_bat</object>
     <object>objects\obj_globalSetter</object>
+    <object>objects\obj_rock</object>
+    <object>objects\obj_tallguy</object>
+    <object>objects\obj_bat</object>
+    <object>objects\obj_mouseController</object>
+    <object>objects\obj_gem</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

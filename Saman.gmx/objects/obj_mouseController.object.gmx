@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="6" enumb="56">
       <action>
         <libid>1</libid>
         <id>611</id>
@@ -29,7 +29,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>obj_rock.x</string>
+            <string>mouse_x</string>
           </argument>
         </arguments>
       </action>
