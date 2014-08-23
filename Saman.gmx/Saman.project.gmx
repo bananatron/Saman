@@ -16,6 +16,8 @@
       <sprite>sprites\spr_rook1runloaded_l</sprite>
       <sprite>sprites\spr_rook1throwing</sprite>
       <sprite>sprites\spr_rook1digging</sprite>
+      <sprite>sprites\spr_rookBurrow_d</sprite>
+      <sprite>sprites\spr_rookBurrow_u</sprite>
     </sprites>
     <sprites name="BM">
       <sprite>sprites\spr_blueman_n_r</sprite>

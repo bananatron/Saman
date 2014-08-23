@@ -202,6 +202,55 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Stop burrowing animation</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if state == "burrowing" {
+  state = "burrowed";
+}
+else if state == "unburrowing" {
+  state = "idle"
+  can_move = true;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -310,9 +359,7 @@ can_move = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//mp_linear_step(global.destx, y, movespeed, false)
-
-//Determine direction of movement and set sprite
+            <string>//Determine direction of movement and set sprite
 
   if ddirection == "left"{
     sprite_running = spr_rook1running_l
@@ -324,22 +371,7 @@ can_move = true;
     sprite_running_loaded = spr_rook1runloaded_r
   }
 
-/**
-//If not at destination, they're running
-if global.destx != self.x &amp;&amp; loaded = false {
-  state = "running"
-}
-//If not at destination &amp; loaded, then running loaded
-if global.destx != self.x &amp;&amp; loaded = true {
-  state = "running_loaded"
-}
-//If at destination and not picking up, set to idle
-if global.destx == self.x &amp;&amp; picking_up = false {
-  state = "idle"
-}
-**/
-
-//Change animations and object properties based on state
+//Change animations and ~object properties based on state
 switch (state){
 
   case "idle":
@@ -356,11 +388,13 @@ switch (state){
   break; 
   case "running":
     image_speed = 1;
+
     sprite_index = sprite_running;
   break;
   
   case "running_loaded":
     image_speed = 1;
+
     sprite_index = sprite_running_loaded;
   break; 
   
@@ -374,7 +408,23 @@ switch (state){
     sprite_index = spr_rook1digging;
   break;
   
-   }
+  case "burrowing":
+    image_speed = 1;
+    sprite_index = spr_rookBurrow_d;
+  break;
+  
+  case "burrowed":
+    image_speed = 0;
+    sprite_index = spr_rookBurrow_d;
+    image_index = 12;
+  break;
+  
+  case "unburrowing":
+    image_speed = 1;
+    sprite_index = spr_rookBurrow_u;
+  break;
+  
+}
    
 </string>
           </argument>
@@ -463,7 +513,7 @@ switch (state){
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="32">
+    <event eventtype="5" enumb="17">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -507,6 +557,39 @@ with obj_rockGem {
       </action>
     </event>
     <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if state == "burrowed" {
+  state = "unburrowing"
+  image_index = 1;
+  alarm[5] = 8;
+}
+else {
+  state = "burrowing"
+  image_index = 1;
+  can_move = false;
+  alarm[5] = 8;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="17">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -586,7 +669,7 @@ with obj_rockGem {
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="32">
+    <event eventtype="10" enumb="17">
       <action>
         <libid>1</libid>
         <id>603</id>
