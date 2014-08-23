@@ -202,7 +202,70 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Generates flying gem</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create(x+50, y-60, obj_flyingGem);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Ends throwing animation</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -221,6 +284,9 @@
             <kind>1</kind>
             <string>state = "idle";
 loaded = false;
+
+scr_grassGem();
+
 can_move = true;
 </string>
           </argument>
@@ -416,8 +482,8 @@ switch (state){
             <kind>1</kind>
             <string>if loaded == false &amp;&amp; can_move == true {
 
-
-  if obj_rockGem.eligible == true {
+with obj_rockGem {
+  if eligible == true {
 
       with obj_gemLoading {
         image_alpha = 1;
@@ -432,6 +498,7 @@ switch (state){
         }
       }
   }
+}
 }
 
 </string>
@@ -461,6 +528,7 @@ switch (state){
   image_index = 0;
   can_move = false;
   alarm[0] = 20;
+  alarm[1] = 10;
 }
 
 </string>
@@ -536,6 +604,10 @@ switch (state){
           <argument>
             <kind>1</kind>
             <string>gem_progress = 0;
+
+if state == "digging" {
+  state = "idle";
+}
 
 with obj_gemLoading {
   image_alpha = 0.2;

@@ -21,6 +21,7 @@
     <sprite>sprites\spr_gemFlying</sprite>
     <sprite>sprites\spr_rook1throwing</sprite>
     <sprite>sprites\spr_rook1digging</sprite>
+    <sprite>sprites\spr_gemGrowing</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
@@ -28,6 +29,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_destroyGem.gml</script>
+    <script>scripts\scr_grassGem.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Controllers/Setters">
@@ -45,6 +47,7 @@
     <objects name="Gem Objects">
       <object>objects\obj_rockGem</object>
       <object>objects\obj_grassGem</object>
+      <object>objects\obj_flyingGem</object>
     </objects>
     <objects name="Enemy Objects">
       <object>objects\obj_bat</object>
