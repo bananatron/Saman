@@ -6,9 +6,9 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>12</bbox_left>
-  <bbox_right>86</bbox_right>
-  <bbox_top>14</bbox_top>
+  <bbox_left>10</bbox_left>
+  <bbox_right>48</bbox_right>
+  <bbox_top>12</bbox_top>
   <bbox_bottom>85</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
@@ -16,10 +16,11 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>100</width>
+  <width>60</width>
   <height>100</height>
   <frames>
     <frame index="0">images\spr_gem_0.png</frame>
     <frame index="1">images\spr_gem_1.png</frame>
+    <frame index="2">images\spr_gem_2.png</frame>
   </frames>
 </sprite>

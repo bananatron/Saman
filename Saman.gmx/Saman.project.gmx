@@ -11,23 +11,42 @@
     <sprite>sprites\spr_rook1running_r</sprite>
     <sprite>sprites\spr_rook1running_l</sprite>
     <sprite>sprites\spr_rook1idle</sprite>
-    <sprite>sprites\spr_gem</sprite>
+    <sprite>sprites\spr_rook1idleloaded</sprite>
+    <sprite>sprites\spr_gemGrass</sprite>
+    <sprite>sprites\spr_gemRock</sprite>
     <sprite>sprites\spr_rook1runloaded_r</sprite>
     <sprite>sprites\spr_rook1runloaded_l</sprite>
+    <sprite>sprites\spr_gemLoading</sprite>
+    <sprite>sprites\spr_rockLayer</sprite>
+    <sprite>sprites\spr_gemFlying</sprite>
+    <sprite>sprites\spr_rook1throwing</sprite>
+    <sprite>sprites\spr_rook1digging</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_destroyGem.gml</script>
+  </scripts>
   <objects name="objects">
     <objects name="Controllers/Setters">
       <object>objects\obj_globalSetter</object>
       <object>objects\obj_mouseController</object>
     </objects>
-    <object>objects\obj_gem</object>
     <objects name="Unit Objects">
       <object>objects\obj_rock</object>
       <object>objects\obj_tallguy</object>
+    </objects>
+    <object>objects\obj_gemLoading</object>
+    <objects name="BG Objects">
+      <object>objects\obj_rockLayer</object>
+    </objects>
+    <objects name="Gem Objects">
+      <object>objects\obj_rockGem</object>
+      <object>objects\obj_grassGem</object>
+    </objects>
+    <objects name="Enemy Objects">
       <object>objects\obj_bat</object>
     </objects>
   </objects>

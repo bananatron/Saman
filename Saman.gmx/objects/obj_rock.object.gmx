@@ -73,6 +73,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>can_move</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>gem_progress</string>
           </argument>
           <argument>
@@ -178,6 +202,31 @@
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>state = "idle";
+loaded = false;
+can_move = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -241,12 +290,23 @@ switch (state){
   break; 
   case "running":
     image_speed = 1;
-    sprite_index = sprite_running
+    sprite_index = sprite_running;
   break;
+  
   case "running_loaded":
     image_speed = 1;
-    sprite_index = sprite_running_loaded
+    sprite_index = sprite_running_loaded;
   break; 
+  
+  case "throwing":
+    image_speed = 0.8;
+    sprite_index = spr_rook1throwing;
+  break;
+  
+  case "digging":
+    image_speed = 0.6;
+    sprite_index = spr_rook1digging;
+  break;
   
    }
    
@@ -272,25 +332,26 @@ switch (state){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ddirection = "right";
-if loaded == false {
-  state = "running";
+            <string>if can_move = true {
+
+    ddirection = "right";
+    if loaded == false {
+      state = "running";
+    }
+    else {
+      state = "running_loaded";
+    }
+    
+    
+    x += movespeed;
+    
+    if movespeed &lt; 20 {   
+      movespeed += 1;  
+    } 
+    else {   
+      movspeed = 20;
+    }
 }
-else {
-  state = "running_loaded";
-}
-
-
-x += movespeed;
-
-if movespeed &lt; 20 {   
-  movespeed += 1;  
-} 
-else {   
-  movspeed = 20;
-}
-
-
 </string>
           </argument>
         </arguments>
@@ -313,24 +374,24 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ddirection = "left";
-if loaded == false {
-  state = "running";
+            <string>if can_move = true {
+    ddirection = "left";
+    if loaded == false {
+      state = "running";
+    }
+    else {
+      state = "running_loaded";
+    }
+    
+    x -= movespeed;
+    
+    if movespeed &lt; 20 {   
+      movespeed += 1;  
+    } 
+    else {   
+      movspeed = 20;
+    }
 }
-else {
-  state = "running_loaded";
-}
-
-x -= movespeed;
-
-if movespeed &lt; 20 {   
-  movespeed += 1;  
-} 
-else {   
-  movspeed = 20;
-}
-
-
 </string>
           </argument>
         </arguments>
@@ -353,25 +414,53 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if loaded == false {
+            <string>if loaded == false &amp;&amp; can_move == true {
 
-with obj_gem {
-  if eligible == true {
+
+  if obj_rockGem.eligible == true {
 
       with obj_gemLoading {
         image_alpha = 1;
         if image_index &lt; 20 {
           image_index += 1;
+          obj_rock.state = "digging";
         }
         else if image_index = 20{
           obj_rock.loaded = true;
-          with instance_nearest(obj_rock.x, obj_rock.y, obj_gem){
-            instance_destroy();
-          }
+          obj_rock.state = "idle";
+          scr_destroyGem();
         }
       }
   }
-} 
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if loaded == true &amp;&amp; can_move == true {
+  state = "throwing";
+  image_index = 0;
+  can_move = false;
+  alarm[0] = 20;
 }
 
 </string>
@@ -382,9 +471,9 @@ with obj_gem {
     <event eventtype="10" enumb="39">
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
@@ -396,11 +485,10 @@ with obj_gem {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>state</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>"idle"</string>
+            <string>if can_move == true {
+  state = "idle"
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -408,9 +496,9 @@ with obj_gem {
     <event eventtype="10" enumb="37">
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
@@ -422,11 +510,10 @@ with obj_gem {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>state</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>"idle"</string>
+            <string>if can_move == true {
+  state = "idle"
+}
+</string>
           </argument>
         </arguments>
       </action>
