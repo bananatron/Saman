@@ -73,35 +73,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>selected</string>
+            <string>gem_progress</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>false</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>picking_up</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>false</string>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -149,7 +125,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>5</string>
           </argument>
         </arguments>
       </action>
@@ -173,7 +149,7 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0.6</string>
+            <string>1</string>
           </argument>
         </arguments>
       </action>
@@ -193,7 +169,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction</string>
+            <string>ddirection</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -219,20 +195,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>mp_linear_step(global.destx, y, movespeed, false)
+            <string>//mp_linear_step(global.destx, y, movespeed, false)
 
 //Determine direction of movement and set sprite
-if global.destx &lt; x {
-  direction = "left"
-  sprite_running = spr_rook1running_l
-  sprite_running_loaded = spr_rook1runloaded_l
-}
-else {
-  direction = "right"
-  sprite_running = spr_rook1running_r
-  sprite_running_loaded = spr_rook1runloaded_r
-}
 
+  if ddirection == "left"{
+    sprite_running = spr_rook1running_l
+    sprite_running_loaded = spr_rook1runloaded_l
+  }
+
+  if ddirection == "right" {
+    sprite_running = spr_rook1running_r
+    sprite_running_loaded = spr_rook1runloaded_r
+  }
+
+/**
 //If not at destination, they're running
 if global.destx != self.x &amp;&amp; loaded = false {
   state = "running"
@@ -245,31 +222,75 @@ if global.destx != self.x &amp;&amp; loaded = true {
 if global.destx == self.x &amp;&amp; picking_up = false {
   state = "idle"
 }
-
-
+**/
 
 //Change animations and object properties based on state
 switch (state){
+
   case "idle":
-    sprite_index = spr_rook1idle
-    movespeed = 0;
-  break; 
-  case "running":
-    sprite_index = sprite_running
-    if movespeed &lt; 10 {
-      movespeed += 0.5;
+    movespeed = 5;
+    image_speed = 0.8;
+    
+    if loaded == false {
+     sprite_index = spr_rook1idle;
     }
     else {
-      movspeed = 10;
+      sprite_index = spr_rook1idleloaded;
     }
+
+  break; 
+  case "running":
+    image_speed = 1;
+    sprite_index = sprite_running
   break;
   case "running_loaded":
+    image_speed = 1;
     sprite_index = sprite_running_loaded
-    movespeed = 8;
   break; 
   
    }
    
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="39">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ddirection = "right";
+if loaded == false {
+  state = "running";
+}
+else {
+  state = "running_loaded";
+}
+
+
+x += movespeed;
+
+if movespeed &lt; 20 {   
+  movespeed += 1;  
+} 
+else {   
+  movspeed = 20;
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -292,7 +313,149 @@ switch (state){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x -= movespeed;
+            <string>ddirection = "left";
+if loaded == false {
+  state = "running";
+}
+else {
+  state = "running_loaded";
+}
+
+x -= movespeed;
+
+if movespeed &lt; 20 {   
+  movespeed += 1;  
+} 
+else {   
+  movspeed = 20;
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if loaded == false {
+
+with obj_gem {
+  if eligible == true {
+
+      with obj_gemLoading {
+        image_alpha = 1;
+        if image_index &lt; 20 {
+          image_index += 1;
+        }
+        else if image_index = 20{
+          obj_rock.loaded = true;
+          with instance_nearest(obj_rock.x, obj_rock.y, obj_gem){
+            instance_destroy();
+          }
+        }
+      }
+  }
+} 
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="39">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>state</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>"idle"</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="37">
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>state</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>"idle"</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>gem_progress = 0;
+
+with obj_gemLoading {
+  image_alpha = 0.2;
+  image_index = 0;
+}
+
+
 </string>
           </argument>
         </arguments>
