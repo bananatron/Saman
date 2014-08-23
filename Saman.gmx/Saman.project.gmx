@@ -7,25 +7,32 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_floor</sprite>
-    <sprite>sprites\spr_rook1running_r</sprite>
-    <sprite>sprites\spr_rook1running_l</sprite>
-    <sprite>sprites\spr_rook1idle</sprite>
-    <sprite>sprites\spr_rook1idleloaded</sprite>
-    <sprite>sprites\spr_gemGrass</sprite>
-    <sprite>sprites\spr_gemRock</sprite>
-    <sprite>sprites\spr_rook1runloaded_r</sprite>
-    <sprite>sprites\spr_rook1runloaded_l</sprite>
+    <sprites name="Rook">
+      <sprite>sprites\spr_rook1running_r</sprite>
+      <sprite>sprites\spr_rook1running_l</sprite>
+      <sprite>sprites\spr_rook1idle</sprite>
+      <sprite>sprites\spr_rook1idleloaded</sprite>
+      <sprite>sprites\spr_rook1runloaded_r</sprite>
+      <sprite>sprites\spr_rook1runloaded_l</sprite>
+      <sprite>sprites\spr_rook1throwing</sprite>
+      <sprite>sprites\spr_rook1digging</sprite>
+    </sprites>
+    <sprites name="BM">
+      <sprite>sprites\spr_blueman_n_r</sprite>
+      <sprite>sprites\spr_blueman_n_l</sprite>
+      <sprite>sprites\spr_bluemanw_r</sprite>
+      <sprite>sprites\spr_bluemanw_l</sprite>
+      <sprite>sprites\spr_bluemanidle</sprite>
+      <sprite>sprites\spr_blueman_pick</sprite>
+    </sprites>
+    <sprites name="Gem">
+      <sprite>sprites\spr_gemFlying</sprite>
+      <sprite>sprites\spr_gemGrowing</sprite>
+      <sprite>sprites\spr_gemRock</sprite>
+      <sprite>sprites\spr_gemGrass</sprite>
+    </sprites>
     <sprite>sprites\spr_gemLoading</sprite>
     <sprite>sprites\spr_rockLayer</sprite>
-    <sprite>sprites\spr_gemFlying</sprite>
-    <sprite>sprites\spr_rook1throwing</sprite>
-    <sprite>sprites\spr_rook1digging</sprite>
-    <sprite>sprites\spr_gemGrowing</sprite>
-    <sprite>sprites\spr_bluemanidle</sprite>
-    <sprite>sprites\spr_bluemanw_l</sprite>
-    <sprite>sprites\spr_bluemanw_r</sprite>
-    <sprite>sprites\spr_blueman_n_l</sprite>
-    <sprite>sprites\spr_blueman_n_r</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>

@@ -191,23 +191,69 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>nearest_gem = instance_nearest(x, y, obj_grassGem) 
-
-if nearest_gem != noone {
-  
-  if nearest_gem.x &lt; x {    state = "notice_left";  }
-  else {    state = "notice_right";    }
-  
-  alarm[9] = 30;
-
+            <string>if state == "idle" {
+    nearest_gem = instance_nearest(x, y, obj_grassGem) 
+    
+    if nearest_gem != noone {
+      
+      if nearest_gem.x &lt; x {    state = "notice_left";  }
+      else {    state = "notice_right";    }
+      
+      alarm[9] = 30;
+    
+    }
+    else {  state = "idle"; }
 }
-else {  state = "idle"; }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="2" enumb="9">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Moving and picking up</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>30</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>9</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -224,12 +270,111 @@ else {  state = "idle"; }
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if nearest_gem.x &lt; x {
-  state = "moving_left"
+            <string>if nearest_gem != noone &amp;&amp; state != "pickup" {
+    if nearest_gem.x &lt; x {
+      state = "moving_left";
+    }
+    else {
+      state = "moving_right";
+    }
+    
+    if abs(nearest_gem.x - x) &lt; 30 {
+      state = "pickup";
+      image_index = 1;
+      alarm[5] = 5;
+    }
 }
-else {
-  state = "moving_right"
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>From 5 - Deleting gem</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with nearest_gem {
+  instance_destroy();
 }
+nearest_gem = noone;
+state = "idle"
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Picking up gem removal</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>nearest_gem.image_alpha = 0;
+alarm[6] = 10;
 </string>
           </argument>
         </arguments>
@@ -384,6 +529,11 @@ switch (state){
     sprite_index = spr_blueman_n_l;
   break;
   
+  case "pickup":
+    image_speed = 0.5;
+    sprite_index = spr_blueman_pick;
+  break;
+  
   case "notice_right":
     image_speed = 0.5;
     sprite_index = spr_blueman_n_r;
@@ -392,11 +542,17 @@ switch (state){
   case "moving_left":
     image_speed = 0.5;
     sprite_index = spr_bluemanw_l;
+    
+    if x &gt; nearest_gem.x { x-= 10 }
+    
   break;
   
-  case "moving_left":
+  case "moving_right":
     image_speed = 0.5;
     sprite_index = spr_bluemanw_r;
+    
+    if x &lt; nearest_gem.x { x+= 10 }
+    
   break;
   
    }
