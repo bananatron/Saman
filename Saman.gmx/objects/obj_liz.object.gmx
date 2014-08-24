@@ -380,14 +380,7 @@ alarm[6] = 20;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if position_meeting(x, y, obj_rock) &amp;&amp; obj_rock.state != "broken" {
-  obj_rock.state = "breaking";
-  obj_rock.image_index = 0;
-  obj_rock.alarm[10] = 10;
-  obj_rock.can_move = false;
-}
-
-if position_meeting(x, y, obj_boulder) {
+            <string>if position_meeting(x, y, obj_boulder) {
   instance_destroy();
 }
 

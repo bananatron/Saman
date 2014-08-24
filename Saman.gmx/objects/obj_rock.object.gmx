@@ -404,16 +404,18 @@ can_move = true;
           <argument>
             <kind>1</kind>
             <string>//Collision stuff
+if state != "breaking" &amp;&amp; state != "broken" {
  if place_meeting(x, y, obj_boulder) &amp;&amp; state != "burrowed" {
     scr_rookBreaking();
  }
- if place_meeting(x, y, obj_bludger) &amp;&amp; state != "burrowed" {
+ if place_meeting(x, y, obj_masterBludger) &amp;&amp; state != "burrowed" {
     scr_rookBreaking();
  }
+ //Lizard birds can break you even when burrowed.
  if place_meeting(x, y, obj_liz) {
      scr_rookBreaking();
  }
-
+}
 
 //Determine direction of movement and set sprite
 
@@ -517,7 +519,7 @@ switch (state){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_move = true {
+            <string>if can_move = true &amp;&amp; x &lt; room_width {
 
     ddirection = "right";
     if loaded == false {
@@ -559,7 +561,7 @@ switch (state){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_move = true {
+            <string>if can_move = true &amp;&amp; x &gt; 5 {
     ddirection = "left";
     if loaded == false {
       state = "running";

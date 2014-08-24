@@ -76,7 +76,8 @@
   <objects name="objects">
     <objects name="Controllers/Setters">
       <object>objects\obj_boulderGenerator</object>
-      <object>objects\obj_globalSetter</object>
+      <object>objects\obj_enemyGenerator</object>
+      <object>objects\obj_gemGenerator</object>
     </objects>
     <objects name="Unit Objects">
       <object>objects\obj_rock</object>

@@ -73,7 +73,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_towards_point(obj_rock.x, y, movespeed);
+            <string>x = 93;
+y = 762;
+move_towards_point(obj_rock.x, y, movespeed);
 </string>
           </argument>
         </arguments>

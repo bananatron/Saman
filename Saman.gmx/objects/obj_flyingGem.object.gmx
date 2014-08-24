@@ -53,7 +53,7 @@
             <kind>1</kind>
             <string>y -= 35;
 
-if y &lt; 100 {
+if y &lt; 340 {
   instance_destroy();
 }
 </string>
