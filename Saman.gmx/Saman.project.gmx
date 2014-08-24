@@ -49,6 +49,11 @@
       <sprite>sprites\spr_lizDiving</sprite>
       <sprite>sprites\spr_lizDiveReverse</sprite>
     </sprites>
+    <sprites name="Bludger">
+      <sprite>sprites\spr_bludgeWalk_l</sprite>
+      <sprite>sprites\spr_bludgeWalk_r</sprite>
+      <sprite>sprites\spr_bludge_roll</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
@@ -57,6 +62,8 @@
     <path>paths\pt_lizPath</path>
     <path>paths\pt_lizDive</path>
     <path>paths\pt_lizRecover</path>
+    <path>paths\pt_bludgeGoingLeft</path>
+    <path>paths\pt_bludgeGoingRight</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\scr_destroyGem.gml</script>
@@ -85,6 +92,7 @@
       <object>objects\obj_boulder</object>
       <object>objects\obj_boulderBreak</object>
       <object>objects\obj_liz</object>
+      <object>objects\obj_bludger</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -89,12 +89,13 @@ move_towards_point(x, 9000, movespeed);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle += 1;
+            <string>image_angle += movespeed/2;
 
-if y &gt;= 704 {
+if y &gt;= 750 {
   instance_create(x, y, obj_boulderBreak);
   instance_destroy();
 }
+
 </string>
           </argument>
         </arguments>
