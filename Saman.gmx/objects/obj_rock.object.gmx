@@ -403,7 +403,19 @@ can_move = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Determine direction of movement and set sprite
+            <string>//Collision stuff
+ if place_meeting(x, y, obj_boulder) &amp;&amp; state != "burrowed" {
+    scr_rookBreaking();
+ }
+ if place_meeting(x, y, obj_bludger) &amp;&amp; state != "burrowed" {
+    scr_rookBreaking();
+ }
+ if place_meeting(x, y, obj_liz) {
+     scr_rookBreaking();
+ }
+
+
+//Determine direction of movement and set sprite
 
   if ddirection == "left"{
     sprite_running = spr_rook1running_l

@@ -52,7 +52,10 @@
     <sprites name="Bludger">
       <sprite>sprites\spr_bludgeWalk_l</sprite>
       <sprite>sprites\spr_bludgeWalk_r</sprite>
-      <sprite>sprites\spr_bludge_roll</sprite>
+      <sprite>sprites\spr_bludgeRollStart_r</sprite>
+      <sprite>sprites\spr_bludgeRollStart_l</sprite>
+      <sprite>sprites\spr_bludgeRollLoop_r</sprite>
+      <sprite>sprites\spr_bludgeRollLoop_l</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -68,6 +71,7 @@
   <scripts name="scripts">
     <script>scripts\scr_destroyGem.gml</script>
     <script>scripts\scr_grassGem.gml</script>
+    <script>scripts\scr_rookBreaking.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Controllers/Setters">
@@ -93,6 +97,9 @@
       <object>objects\obj_boulderBreak</object>
       <object>objects\obj_liz</object>
       <object>objects\obj_bludger</object>
+      <object>objects\obj_bludgerRolly_r</object>
+      <object>objects\obj_bludgerRolly_l</object>
+      <object>objects\obj_masterBludger</object>
     </objects>
   </objects>
   <rooms name="rooms">
