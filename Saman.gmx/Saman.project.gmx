@@ -65,6 +65,7 @@
       <sprite>sprites\spr_multi</sprite>
       <sprite>sprites\spr_factory</sprite>
     </sprites>
+    <sprite>sprites\spr_scoreScreen</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>

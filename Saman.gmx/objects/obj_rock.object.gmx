@@ -713,7 +713,7 @@ with obj_rockGem {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if loaded == true &amp;&amp; can_move == true {
+            <string>if loaded == true &amp;&amp; can_move == true &amp;&amp; x &lt; 1800 {
   state = "throwing";
   image_index = 0;
   can_move = false;
@@ -868,7 +868,7 @@ if state == "digging" {
 }
 
 with obj_gemLoading {
-  image_alpha = 0.2;
+  image_alpha = 0;
   image_index = 0;
 }
 

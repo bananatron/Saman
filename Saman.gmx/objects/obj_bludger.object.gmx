@@ -59,30 +59,6 @@
       </action>
       <action>
         <libid>1</libid>
-        <id>611</id>
-        <kind>6</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>depth</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>-y</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -97,7 +73,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>path_start(pt_bludgeGoingLeft, movespeed, 2, true);
+            <string>if level == 1 {
+  x = room_width-5;
+  y = 757
+}
+else {
+  x = room_width-5;
+  y = 808
+}
+path_start(pt_bludgeGoingLeft, movespeed, 2, false);
+
+depth = -y;
 </string>
           </argument>
         </arguments>
@@ -143,8 +129,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-
+            <string>//If halfway through position, change directions so sprite matches movement
 if path_position &gt; 0.5 {
   sprite_index = spr_bludgeWalk_r;
 }
@@ -158,6 +143,9 @@ if position_meeting(x, y, obj_liz) {
  if  position_meeting(x, y, obj_boulder) {
   instance_destroy();
 }
+
+
+event_inherited();
 </string>
           </argument>
         </arguments>

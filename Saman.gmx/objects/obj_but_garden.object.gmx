@@ -29,8 +29,8 @@
 position = 1;
 event_inherited();
 
-  x = 50;
-  y = 120;
+  x = 50+270;
+  y = 10;
 </string>
           </argument>
         </arguments>
@@ -126,7 +126,7 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.gems &gt; 20 {
+            <string>if global.gems &gt;= 20 {
   global.gems -= 20;
  
   instance_create(x, y, obj_garden);

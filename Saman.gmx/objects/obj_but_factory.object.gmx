@@ -28,8 +28,8 @@
             <string>position = 3;
 event_inherited();
 
-  x = 50;
-  y = 60*4;
+  x = 50+260+260+260;
+  y = 10;
 </string>
           </argument>
         </arguments>
@@ -149,7 +149,7 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.gems &gt; 150 {
+            <string>if global.gems &gt;= 150 {
   global.gems -= 150;
  
   instance_create(x, y, obj_factory);

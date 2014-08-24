@@ -46,7 +46,7 @@
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>450</string>
+            <string>300</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -72,7 +72,7 @@
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>450</string>
+            <string>300</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -96,7 +96,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.gems += 60;
+            <string>global.gems += 30;
 
 </string>
           </argument>

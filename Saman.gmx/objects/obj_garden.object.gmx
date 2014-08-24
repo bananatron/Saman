@@ -96,7 +96,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.gems += 5;
+            <string>global.gems += 2;
 
 </string>
           </argument>

@@ -28,7 +28,7 @@
             <string>x = random_range(330,1700);
 y = random_range(170,190);
 
-depth = -y
+depth = -500-y
 image_speed = 0.2;
 </string>
           </argument>

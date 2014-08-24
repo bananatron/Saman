@@ -235,7 +235,7 @@ state = "searching"
             <kind>1</kind>
             <string>state = "recovering";
 path_start(pt_lizRecover, movespeed*2, 0, false);
-alarm[6] = 20;
+alarm[6] = 32;
 </string>
           </argument>
         </arguments>
@@ -324,7 +324,7 @@ alarm[6] = 20;
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>30</string>
+            <string>20</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -348,14 +348,14 @@ alarm[6] = 20;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if abs(obj_rock.x - x) &lt; 20 &amp;&amp; state == "searching" {
+            <string>if abs(obj_rock.x - x) &lt; 30 &amp;&amp; state == "searching" {
   state = "diving"
   p_position = path_position;
   path_end();
   
   path_start(pt_lizDive, movespeed*2, 3, false);
   alarm[1] = 5;
-  alarm[5] = 20;
+  alarm[5] = 35;
 
 }
 </string>
@@ -383,6 +383,7 @@ alarm[6] = 20;
             <string>if position_meeting(x, y, obj_boulder) {
   instance_destroy();
 }
+depth = -y;
 
 if position_meeting(x, y, obj_flyingGem) {
   instance_destroy();
@@ -408,7 +409,7 @@ switch (state){
   break;
   
   case "recovering":
-    image_speed = 0.5;
+    image_speed = 0.3;
     sprite_index = spr_lizDiveReverse;
   break;
   
