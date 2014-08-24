@@ -384,6 +384,10 @@ alarm[6] = 20;
   instance_destroy();
 }
 
+if position_meeting(x, y, obj_flyingGem) {
+  instance_destroy();
+}
+
 //Change animations and object properties based on state
 switch (state){
 

@@ -102,8 +102,9 @@
             <string>randomize();
 rangem = irandom(2)
 
+//Location and level of gem are generatd by gem object
 if rangem == 2 {
-  instance_create(random_range(40, room_width-40), 760, obj_rockGem);
+  instance_create(random_range(220, 1700), y, obj_rockGem);
 }
 </string>
           </argument>

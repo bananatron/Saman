@@ -201,6 +201,30 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>level</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="10">
       <action>
@@ -403,7 +427,16 @@ can_move = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Collision stuff
+            <string>//Set Level
+if level == 1 {
+  y = 757;
+}
+else {
+  y = 808;
+}
+depth = -y;
+
+//Collision stuff
 if state != "breaking" &amp;&amp; state != "broken" {
  if place_meeting(x, y, obj_boulder) &amp;&amp; state != "burrowed" {
     scr_rookBreaking();
@@ -709,6 +742,32 @@ with obj_rockGem {
         <isnot>0</isnot>
       </action>
     </event>
+    <event eventtype="10" enumb="40">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if level == 1 {
+  level = 2;
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="10" enumb="39">
       <action>
         <libid>1</libid>
@@ -729,6 +788,32 @@ with obj_rockGem {
             <string>if can_move == true {
   state = "idle"
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="38">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if level == 2 {
+  level = 1;
+}
+
 </string>
           </argument>
         </arguments>

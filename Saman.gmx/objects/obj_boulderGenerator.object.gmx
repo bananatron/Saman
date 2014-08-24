@@ -77,10 +77,6 @@
             <kind>1</kind>
             <string>if obj_blueman.state == "moving_left" || obj_blueman.state == "moving_right" || obj_blueman.state == "called" {
 
-  //Always creates a boulder to hit the lizards
-  if instance_nearest(x, y, obj_liz) != noone {
-    instance_create(obj_liz.x, obj_blueman.y, obj_boulder);
-  }
 
   //Generates an area around blueman where boulders can spawn (+ or - 50 atm)
   randrift = irandom(1);

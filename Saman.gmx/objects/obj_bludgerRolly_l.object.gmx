@@ -25,6 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>level</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>irandom(1)+1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>movespeed</string>
           </argument>
           <argument>
@@ -74,7 +98,6 @@
           <argument>
             <kind>1</kind>
             <string>x = room_width-5;
-y = 762;
 move_towards_point(obj_rock.x, y, movespeed);
 
 </string>
