@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>100+irandom(100)</string>
+            <string>200+irandom(100)</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -116,7 +116,7 @@ end
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>100-threat</string>
+            <string>200-threat</string>
           </argument>
           <argument>
             <kind>4</kind>

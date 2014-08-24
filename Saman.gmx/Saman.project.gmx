@@ -35,6 +35,7 @@
       <sprite>sprites\spr_gemGrass</sprite>
     </sprites>
     <sprite>sprites\spr_gemLoading</sprite>
+    <sprite>sprites\spr_buttons</sprite>
     <sprite>sprites\spr_rockLayer</sprite>
     <sprites name="Boulders">
       <sprite>sprites\spr_boulder1</sprite>
@@ -58,6 +59,12 @@
       <sprite>sprites\spr_bludgeRollLoop_l</sprite>
     </sprites>
     <sprite>sprites\spr_bubble</sprite>
+    <sprites name="Buildings">
+      <sprite>sprites\spr_lab</sprite>
+      <sprite>sprites\spr_garden</sprite>
+      <sprite>sprites\spr_multi</sprite>
+      <sprite>sprites\spr_factory</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
@@ -73,6 +80,7 @@
     <script>scripts\scr_destroyGem.gml</script>
     <script>scripts\scr_grassGem.gml</script>
     <script>scripts\scr_rookBreaking.gml</script>
+    <script>scripts\scr_buttonPosition.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\ft_score</font>
@@ -93,6 +101,13 @@
       <object>objects\obj_rockLayer</object>
       <object>objects\obj_houseCaller</object>
     </objects>
+    <objects name="UI Objects">
+      <object>objects\obj_but_multi</object>
+      <object>objects\obj_but_garden</object>
+      <object>objects\obj_but_lab</object>
+      <object>objects\obj_but_factory</object>
+      <object>objects\obj_but_master</object>
+    </objects>
     <objects name="Gem Objects">
       <object>objects\obj_rockGem</object>
       <object>objects\obj_grassGem</object>
@@ -106,6 +121,13 @@
       <object>objects\obj_bludgerRolly_r</object>
       <object>objects\obj_bludgerRolly_l</object>
       <object>objects\obj_masterBludger</object>
+    </objects>
+    <objects name="Buildings">
+      <object>objects\obj_masterBuilding</object>
+      <object>objects\obj_multi</object>
+      <object>objects\obj_garden</object>
+      <object>objects\obj_lab</object>
+      <object>objects\obj_factory</object>
     </objects>
   </objects>
   <rooms name="rooms">

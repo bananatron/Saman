@@ -83,6 +83,30 @@
       </action>
       <action>
         <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>depth</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>-y</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>301</id>
         <kind>0</kind>
         <userelative>-1</userelative>
@@ -306,7 +330,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>From 5 - Deleting gem</string>
+            <string>From 5 - Deleting gem + adding to score</string>
           </argument>
         </arguments>
       </action>
@@ -329,6 +353,7 @@
             <string>with nearest_gem {
   instance_destroy();
 }
+global.gems += 1;
 nearest_gem = noone;
 state = "idle"
 </string>
@@ -582,6 +607,8 @@ switch (state){
   //Called to house
   case "called":
     if x &lt; room_width-200 { x+= 10 }
+    view_xview = random_range(-2, 2)
+    view_yview = random_range(-2, 2)
     sprite_index = spr_bluemanw_r;
   break;
 }
