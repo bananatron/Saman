@@ -106,6 +106,9 @@ rangem = irandom(2)
 if rangem == 2 {
   instance_create(random_range(220, 1700), y, obj_rockGem);
 }
+if rangem == 1 {
+  instance_create(random_range(220, 1700), y, obj_rockGem);
+}
 </string>
           </argument>
         </arguments>

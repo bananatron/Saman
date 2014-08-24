@@ -128,7 +128,7 @@ event_inherited();
             <kind>1</kind>
             <string>if global.gems &gt;= 20 {
   global.gems -= 20;
- 
+       audio_play_sound(snd_blip, 1, false);
   instance_create(x, y, obj_garden);
 }
 </string>

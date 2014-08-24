@@ -4,7 +4,19 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_calling</sound>
+    <sound>sound\snd_digup</sound>
+    <sound>sound\snd_digdown</sound>
+    <sound>sound\snd_gettingGem</sound>
+    <sound>sound\snd_blip</sound>
+    <sound>sound\snd_dead</sound>
+    <sound>sound\snd_throwing</sound>
+    <sound>sound\snd_grassLanding</sound>
+    <sound>sound\bg_music1</sound>
+    <sound>sound\bg_music2</sound>
+    <sound>sound\snd_rocksFalling</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_floor</sprite>
     <sprites name="Rook">
@@ -66,9 +78,14 @@
       <sprite>sprites\spr_factory</sprite>
     </sprites>
     <sprite>sprites\spr_scoreScreen</sprite>
+    <sprite>sprites\spr_enter</sprite>
+    <sprite>sprites\spr_menuDrop</sprite>
+    <sprite>sprites\spr_sound</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
+    <background>background\bg_intro</background>
+    <background>background\bg_score</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pt_lizPath</path>
@@ -87,17 +104,25 @@
     <font>fonts\ft_score</font>
   </fonts>
   <objects name="objects">
+    <objects name="Score Screen">
+      <object>objects\obj_scoreEnterRestart</object>
+      <object>objects\obj_timeDisplay</object>
+      <object>objects\obj_scoreDisplay</object>
+    </objects>
     <objects name="Controllers/Setters">
       <object>objects\obj_boulderGenerator</object>
       <object>objects\obj_enemyGenerator</object>
       <object>objects\obj_gemGenerator</object>
+      <object>objects\obj_introController</object>
       <object>objects\obj_scoreKeeper</object>
+      <object>objects\obj_blackFader</object>
+      <object>objects\obj_pauseController</object>
+      <object>objects\obj_muteController</object>
     </objects>
     <objects name="Unit Objects">
       <object>objects\obj_rock</object>
       <object>objects\obj_blueman</object>
     </objects>
-    <object>objects\obj_gemLoading</object>
     <objects name="BG Objects">
       <object>objects\obj_rockLayer</object>
       <object>objects\obj_houseCaller</object>
@@ -108,6 +133,7 @@
       <object>objects\obj_but_lab</object>
       <object>objects\obj_but_factory</object>
       <object>objects\obj_but_master</object>
+      <object>objects\obj_gemLoading</object>
     </objects>
     <objects name="Gem Objects">
       <object>objects\obj_rockGem</object>
@@ -132,7 +158,9 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\intro</room>
     <room>rooms\room0</room>
+    <room>rooms\rm_score</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

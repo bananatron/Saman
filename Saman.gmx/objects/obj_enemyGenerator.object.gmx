@@ -75,7 +75,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>threat += 1;
+            <string>threat += 2;
 
 randomize();
 ranenemy = irandom(5) 

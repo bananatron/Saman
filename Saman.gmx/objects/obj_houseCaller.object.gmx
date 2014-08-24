@@ -179,6 +179,7 @@ image_speed = 0.5;
 alarm[5] = 60;
 
 obj_blueman.state = "called";
+audio_play_sound(snd_calling, 1, false);
 </string>
           </argument>
         </arguments>

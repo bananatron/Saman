@@ -76,8 +76,9 @@
           <argument>
             <kind>1</kind>
             <string>if obj_blueman.state == "moving_left" || obj_blueman.state == "moving_right" || obj_blueman.state == "called" {
-
-
+audio_sound_gain(snd_rocksFalling, 0.5, 0);
+audio_play_sound(snd_rocksFalling, 0.8, false);
+audio_sound_gain(snd_rocksFalling, 0.5, 0);
   //Generates an area around blueman where boulders can spawn (+ or - 50 atm)
   randrift = irandom(1);
   xdrift = irandom(50);

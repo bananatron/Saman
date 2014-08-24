@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>2</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -225,6 +225,27 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_play_music(bg_music2, true);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="10">
       <action>
@@ -336,7 +357,7 @@ else if state == "unburrowing" {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Generates flying gem</string>
+            <string>Generates flying gem + sound</string>
           </argument>
         </arguments>
       </action>
@@ -357,6 +378,7 @@ else if state == "unburrowing" {
           <argument>
             <kind>1</kind>
             <string>instance_create(x+50, y-60, obj_flyingGem);
+  audio_play_sound(snd_throwing, 1, false);
 </string>
           </argument>
         </arguments>
@@ -535,6 +557,132 @@ switch (state){
         </arguments>
       </action>
     </event>
+    <event eventtype="5" enumb="90">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if loaded == false &amp;&amp; can_move == true {
+
+with obj_rockGem {
+  if eligible == true {
+
+      with obj_gemLoading {
+        image_alpha = 1;
+        if image_index &lt; 20 {
+          image_index += 1;
+          obj_rock.state = "digging";
+        }
+        else if image_index = 20{
+          obj_rock.loaded = true;
+          obj_rock.state = "idle";
+          scr_destroyGem();
+        }
+      }
+   audio_play_sound(snd_gettingGem, 1, false);
+  }
+}
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="68">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if can_move = true &amp;&amp; x &lt; room_width-15 {
+
+    ddirection = "right";
+    if loaded == false {
+      state = "running";
+    }
+    else {
+      state = "running_loaded";
+    }
+    
+    
+    x += movespeed;
+    
+    if movespeed &lt; 20 {   
+      movespeed += 1;  
+    } 
+    else {   
+      movspeed = 20;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="65">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if can_move = true &amp;&amp; x &gt; 15 {
+    ddirection = "left";
+    if loaded == false {
+      state = "running";
+    }
+    else {
+      state = "running_loaded";
+    }
+    
+    x -= movespeed;
+    
+    if movespeed &lt; 20 {   
+      movespeed += 1;  
+    } 
+    else {   
+      movspeed = 20;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="5" enumb="39">
       <action>
         <libid>1</libid>
@@ -651,8 +799,40 @@ with obj_rockGem {
           scr_destroyGem();
         }
       }
+   audio_play_sound(snd_gettingGem, 1, false);
   }
 }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="90">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if loaded == true &amp;&amp; can_move == true &amp;&amp; x &lt; 1800 {
+  state = "throwing";
+  image_index = 0;
+  can_move = false;
+  alarm[0] = 20;
+  alarm[1] = 10;
+
 }
 
 </string>
@@ -683,12 +863,14 @@ with obj_rockGem {
       state = "unburrowing"
       image_index = 1;
       alarm[5] = 8;
+      audio_play_sound(snd_digup, 1, false);
     }
     else {
       state = "burrowing"
       image_index = 1;
       can_move = false;
       alarm[5] = 8;
+      audio_play_sound(snd_digdown, 1, false);
     }
 }
 </string>
@@ -719,6 +901,7 @@ with obj_rockGem {
   can_move = false;
   alarm[0] = 20;
   alarm[1] = 10;
+
 }
 
 </string>
@@ -742,6 +925,144 @@ with obj_rockGem {
         <isnot>0</isnot>
       </action>
     </event>
+    <event eventtype="10" enumb="90">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>gem_progress = 0;
+
+if state == "digging" {
+  state = "idle";
+}
+
+with obj_gemLoading {
+  image_alpha = 0;
+  image_index = 0;
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="87">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if level == 2 {
+  level = 1;
+      audio_play_sound(snd_blip, 1, false);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="83">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if level == 1 {
+  level = 2;
+    audio_play_sound(snd_blip, 1, false);
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="68">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if can_move == true {
+  state = "idle"
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="65">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if can_move == true {
+  state = "idle"
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="10" enumb="40">
       <action>
         <libid>1</libid>
@@ -761,6 +1082,7 @@ with obj_rockGem {
             <kind>1</kind>
             <string>if level == 1 {
   level = 2;
+    audio_play_sound(snd_blip, 1, false);
 }
 
 </string>
@@ -812,6 +1134,7 @@ with obj_rockGem {
             <kind>1</kind>
             <string>if level == 2 {
   level = 1;
+      audio_play_sound(snd_blip, 1, false);
 }
 
 </string>

@@ -9,7 +9,7 @@
   <speed>30</speed>
   <persistent>0</persistent>
   <colour>12632256</colour>
-  <showcolour>-1</showcolour>
+  <showcolour>0</showcolour>
   <code></code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
@@ -40,7 +40,7 @@
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="-1" objName="&lt;undefined&gt;" xview="5" yview="5" wview="1990" hview="840" xport="0" yport="0" wport="995" hport="420" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="&lt;undefined&gt;" xview="0" yview="0" wview="2000" hview="850" xport="0" yport="0" wport="1000" hport="425" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="640" hview="480" xport="0" yport="0" wport="640" hport="480" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
@@ -64,9 +64,12 @@
     <instance objName="&lt;undefined&gt;" x="88" y="180" name="inst_A54C8008" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rockLayer" x="728" y="392" name="inst_A7C68F81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemyGenerator" x="140" y="-90" name="inst_95EF100B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pauseController" x="715" y="157" name="inst_4F4654A3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_but_garden" x="409" y="-67" name="inst_AEE7FEBF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_but_factory" x="1007" y="-69" name="inst_1390C00D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_but_lab" x="698" y="-69" name="inst_4EA8E09D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_muteController" x="1843" y="18" name="inst_4B3B5BE8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_blackFader" x="171" y="-85" name="inst_4D057F7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

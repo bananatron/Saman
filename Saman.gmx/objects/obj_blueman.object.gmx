@@ -378,7 +378,7 @@ state = "idle"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Picking up gem removal</string>
+            <string>Picking up gem - reseting rocklayer</string>
           </argument>
         </arguments>
       </action>
@@ -400,6 +400,9 @@ state = "idle"
             <kind>1</kind>
             <string>nearest_gem.image_alpha = 0;
 alarm[6] = 10;
+
+obj_rockLayer.x = obj_rockLayer.originx
+obj_rockLayer.y = obj_rockLayer.originy
 </string>
           </argument>
         </arguments>
@@ -588,28 +591,28 @@ switch (state){
   case "moving_left":
     image_speed = 0.5;
     sprite_index = spr_bluemanw_l;
-    //Screen shake effect
-    view_xview = random_range(-2, 2)
-    view_yview = random_range(-2, 2)
     if x &gt; nearest_gem.x { x-= 10 }
-    
+    //Screen shake effect
+    background_x[0] = random_range(-2, 2)
+    background_y[0] = random_range(-2, 2)
   break;
   
   case "moving_right":
     image_speed = 0.5;
     sprite_index = spr_bluemanw_r;
-    //Screen shake effect
-    view_xview = random_range(-2, 2)
-    view_yview = random_range(-2, 2)
     if x &lt; nearest_gem.x { x+= 10 }
+    //Screen shake effect
+    background_x[0] = random_range(-2, 2)
+    background_y[0] = random_range(-2, 2)
   break;
   
   //Called to house
   case "called":
     if x &lt; room_width-200 { x+= 10 }
-    view_xview = random_range(-2, 2)
-    view_yview = random_range(-2, 2)
     sprite_index = spr_bluemanw_r;
+    //Screen shake effect
+    background_x[0] = random_range(-2, 2)
+    background_y[0] = random_range(-2, 2)
   break;
 }
 
