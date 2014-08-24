@@ -49,7 +49,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.score</string>
+            <string>global.timer</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -99,7 +99,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.score</string>
+            <string>global.timer</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -123,7 +123,7 @@
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>10</string>
+            <string>60</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -150,7 +150,6 @@
           <argument>
             <kind>1</kind>
             <string>draw_set_font(ft_score);
-draw_text(50, 50, string(global.score));
 
 draw_text(50, 100, string(global.gems));
 </string>

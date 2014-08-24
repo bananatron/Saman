@@ -64,6 +64,7 @@
     <instance objName="obj_blueman" x="1702" y="293" name="inst_88AC91BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_but_multi" x="175" y="-66" name="inst_BB54550A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="&lt;undefined&gt;" x="88" y="180" name="inst_A54C8008" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_rockLayer" x="-1" y="26" name="inst_A7C68F81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_but_garden" x="409" y="-67" name="inst_AEE7FEBF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_but_factory" x="1007" y="-69" name="inst_1390C00D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_but_lab" x="698" y="-69" name="inst_4EA8E09D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

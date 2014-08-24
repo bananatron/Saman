@@ -29,6 +29,7 @@
 y = random_range(170,190);
 
 depth = -y
+image_speed = 0.2;
 </string>
           </argument>
         </arguments>
