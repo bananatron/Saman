@@ -33,6 +33,30 @@
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>threat</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="0">
       <action>
@@ -51,7 +75,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>randomize();
+            <string>threat += 1;
+
+randomize();
 ranenemy = irandom(5) 
 
 switch (ranenemy){
@@ -90,7 +116,7 @@ end
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>100+irandom(100)</string>
+            <string>100-threat</string>
           </argument>
           <argument>
             <kind>4</kind>

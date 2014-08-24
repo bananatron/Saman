@@ -28,6 +28,10 @@
             <string>if x &lt; -20 || x &gt; room_width+20 {
   instance_destroy();
 }
+
+if position_meeting(x, y, obj_liz) {
+  instance_destroy();
+}
 </string>
           </argument>
         </arguments>

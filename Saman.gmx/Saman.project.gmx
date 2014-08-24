@@ -74,11 +74,15 @@
     <script>scripts\scr_grassGem.gml</script>
     <script>scripts\scr_rookBreaking.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\ft_score</font>
+  </fonts>
   <objects name="objects">
     <objects name="Controllers/Setters">
       <object>objects\obj_boulderGenerator</object>
       <object>objects\obj_enemyGenerator</object>
       <object>objects\obj_gemGenerator</object>
+      <object>objects\obj_scoreKeeper</object>
     </objects>
     <objects name="Unit Objects">
       <object>objects\obj_rock</object>
