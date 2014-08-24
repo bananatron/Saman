@@ -519,7 +519,7 @@ switch (state){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_move = true &amp;&amp; x &lt; room_width {
+            <string>if can_move = true &amp;&amp; x &lt; room_width-15 {
 
     ddirection = "right";
     if loaded == false {
@@ -561,7 +561,7 @@ switch (state){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if can_move = true &amp;&amp; x &gt; 5 {
+            <string>if can_move = true &amp;&amp; x &gt; 15 {
     ddirection = "left";
     if loaded == false {
       state = "running";

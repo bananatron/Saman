@@ -191,7 +191,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if state == "idle" {
+            <string>if state == "idle" || state == "called" {
     nearest_gem = instance_nearest(x, y, obj_grassGem) 
     
     if nearest_gem != noone {
@@ -433,6 +433,26 @@ alarm[6] = 10;
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Idle control</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -529,6 +549,7 @@ switch (state){
     sprite_index = spr_blueman_n_l;
   break;
   
+  //Picking up gem
   case "pickup":
     image_speed = 0.5;
     sprite_index = spr_blueman_pick;
@@ -542,6 +563,7 @@ switch (state){
   case "moving_left":
     image_speed = 0.5;
     sprite_index = spr_bluemanw_l;
+    //Screen shake effect
     view_xview = random_range(-2, 2)
     view_yview = random_range(-2, 2)
     if x &gt; nearest_gem.x { x-= 10 }
@@ -551,12 +573,21 @@ switch (state){
   case "moving_right":
     image_speed = 0.5;
     sprite_index = spr_bluemanw_r;
+    //Screen shake effect
     view_xview = random_range(-2, 2)
     view_yview = random_range(-2, 2)
     if x &lt; nearest_gem.x { x+= 10 }
   break;
   
-   }
+  //Called to house
+  case "called":
+    if x &lt; room_width-200 { x+= 10 }
+    sprite_index = spr_bluemanw_r;
+  break;
+}
+
+  
+   
    
 </string>
           </argument>

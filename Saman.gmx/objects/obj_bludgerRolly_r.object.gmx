@@ -3,7 +3,7 @@
   <spriteName>spr_bludgeRollStart_r</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>3</depth>
+  <depth>2</depth>
   <persistent>0</persistent>
   <parentName>obj_masterBludger</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -73,7 +73,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = 93;
+            <string>x = 5;
 y = 762;
 move_towards_point(obj_rock.x, y, movespeed);
 </string>

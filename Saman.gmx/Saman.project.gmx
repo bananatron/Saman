@@ -57,6 +57,7 @@
       <sprite>sprites\spr_bludgeRollLoop_r</sprite>
       <sprite>sprites\spr_bludgeRollLoop_l</sprite>
     </sprites>
+    <sprite>sprites\spr_bubble</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
@@ -86,6 +87,7 @@
     <object>objects\obj_gemLoading</object>
     <objects name="BG Objects">
       <object>objects\obj_rockLayer</object>
+      <object>objects\obj_houseCaller</object>
     </objects>
     <objects name="Gem Objects">
       <object>objects\obj_rockGem</object>
@@ -93,7 +95,6 @@
       <object>objects\obj_flyingGem</object>
     </objects>
     <objects name="Enemy Objects">
-      <object>objects\obj_bat</object>
       <object>objects\obj_boulder</object>
       <object>objects\obj_boulderBreak</object>
       <object>objects\obj_liz</object>
