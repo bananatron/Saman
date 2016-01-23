@@ -1,7 +1,7 @@
 Saman
 =====
 
-Saman is a game entry for Ludum Dare #30. Ludum Dare is a game competition where a single person must craft a game and all assets in 48 hours. As a result, it's a pretty crappy game.
+Saman is a game entry for Ludum Dare #30. Ludum Dare is a game competition where a single person must craft a game and all assets in 48 hours. As a result, it's a pretty crappy game, but I had fun making it.
 
 <img src="http://i.imgur.com/LAClgdy.png">
 
